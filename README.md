@@ -1,110 +1,132 @@
-# README_human_mdh1_pY277
+# Homo sapiens malate dehydrogenase 1 (MDH1)
 
-# Species and enzyme  
-**Homo sapiens malate dehydrogenase 1 (MDH1)**  
+# Uniprot number: P40925
+# Variation: Phosphorylated Tyr277 (pY277) and phosphomimetic substitution Y277D
 
-# Uniprot number  
-**P40925**
 
-# Variation  
-**Phosphorylated Tyr277 (pY277) and phosphomimetic substitution Y277D**
+## Description
+This repository contains modeled structures, molecular dynamics output, and analysis for unmodified MDH1, phosphorylated Tyr277, and the Y277D phosphomimetic variant. Data include weak-interaction maps, structural overlays, RMSF analyses, and pKa predictions that together evaluate whether Y277D accurately mimics phosphotyrosine at this position.
 
----
 
-## Description  
-This project analyzes how post-translational phosphorylation at Tyr277 and the Y277D phosphomimetic substitution affect the structure and predicted function of human MDH1. MDH1 plays a central role in the malate–aspartate shuttle, where subtle loop motions near the active-site cleft regulate substrate access and catalytic timing. Tyr277 sits on a short loop adjacent to this region, making it a plausible regulatory position even though it is not a documented PTM site. Structural modeling, weak-interaction mapping, and MD simulations were used to compare the unmodified, phosphorylated, and mimic states.
+# Models of human-modified MDH proteins
 
----
+1. **Image of the unmodified site**  
+![Unmodified site](images/site_unmodified_y277.png)
 
-## Summary of structures and how structures were generated  
-All models were generated in **IntelliFold** with the **homodimer assembly** enabled.  
+   **Wide view:**  
+   ![Unmodified wide](images/site_unmodified_y277_wide.png)
 
-- **Unmodified model:** Direct IntelliFold prediction of the MDH1 dimer.  
-- **Phosphorylated model:** Tyr277 modified to phosphotyrosine (PTR277) using the PTM editor.  
-- **Mimic model:** Tyr277 mutated to Asp277 (Y277D).  
+2. **Image of modification site**  
+![Modified site](images/site_modified_pY277.png)
 
-Weak-interaction maps were used to identify residue contacts for each model.  
-The Y277D mimic was further analyzed using MD simulations (Project 2 Colab), generating RMSF and pKa profiles.
+   **Wide view:**  
+   ![Modified wide](images/site_modified_pY277_wide.png)
 
----
+3. **Image of mimic site**  
+![Mimic site](images/site_mimic_y277d.png)
 
-## Summary of findings  
+   **Wide view:**  
+   ![Mimic wide](images/site_mimic_y277d_wide.png)
 
-### Structural outcomes  
-- **Unmodified Tyr277** interacts with Asn275, Trp183, Val299, and Arg309.  
-- **Phosphorylation (pY277)** adds bulk and negative charge, pulling Gly301 and Arg309 into the pocket and shifting local loop geometry.  
-- **Y277D** cannot reproduce these effects. The smaller side chain removes aromatic packing and loosens the loop.
+4. **Superimposed comparison of all three variants**  
+![Superimposed structures](images/site_compare_p277.png)
 
-### Functional implications  
-- **pY277** likely stabilizes a shifted loop conformation that could regulate substrate access.  
-- **Y277D** increases flexibility instead of creating a structured electrostatic environment, meaning it does not function as a true mimic.
 
-### MD simulation outcomes  
-- RMSF shows **elevated motion** between residues 270–310.  
-- pKa values show **no meaningful changes** in catalytic histidines.  
-- The mimic’s effects are primarily structural and dynamic rather than altering protonation equilibria.
+## Effect of the sequence variant and PTM on MDH dynamics
 
----
+Part 3 from the Project 4 report
 
-## Mutation and PTM in context  
-Tyr277 sits near the entrance of the active-site cleft where loop movements gate substrate access. Disrupting packing or altering charge distribution at this position is predicted to influence catalytic timing and oxaloacetate positioning.
+1. **Image of aligned PDB files (no solvent)**  
+*(Provided as superimposed variants)*  
+![Aligned variants](images/site_compare_p277.png)
 
----
+2. **Image of the site with the aligned PDB files (no solvent)**  
+*(Close-up of the same overlay)*  
+![Aligned site view](images/site_compare_p277.png)
 
-## Comparison with wild-type  
-Relative to WT:  
-- **pY277** reorganizes the loop and surrounding residues without disturbing global folding.  
-- **Y277D** destabilizes the region by removing aromatic bulk and shortening the side chain.  
-The mimic diverges from both WT and phosphorylated forms.
+3. **Annotated RMSF plot showing differences between simulations**  
+![RMSF line plot](images/rmsf_plot_mdh1_pY277.png)
 
----
+4. **Annotated RMSF scatter plot**  
+![RMSF scatter](images/rmsf_scatter_plot_mdh1_pY277.png)
 
-## Local structure changes  
+5. **Annotated pKa plot for titratable residues**  
+![pKa plot](images/pKa_scatter_plot_mdh1_pY277.png)
 
-### Unmodified  
-**Figure 1.** `site_unmodified_y277.png`  
-**Figure 2.** `site_unmodified_y277_wide.png`
 
-### Phosphorylated  
-**Figure 3.** `site_modified_pY277.png`  
-**Figure 4.** `site_modified_pY277_wide.png`
+**Description of the data and changes**  
+(See full written report for integrated structural and MD interpretation.)
 
-### Mimic  
-**Figure 5.** `site_mimic_y277d.png`  
-**Figure 6.** `site_mimic_y277d_wide.png`
 
-### Structural overlay  
-**Figure 7.** `site_compare_p277.png`
+## Comparison of the mimic and the authentic PTM
 
----
+Part 4 from the Project 4 report outline
 
-## Change in dynamics (MD results)
+The comparison uses:
 
-### RMSF  
-**Figure 8.** `rmsf_plot_mdh1_pY277.png`  
-**Figure 9.** `rmsf_scatter_plot_mdh1_pY277.png`
+- Unmodified Tyr277  
+  ![Unmodified](images/site_unmodified_y277.png)
 
-### pKa  
-**Figure 10.** `pKa_scatter_plot_mdh1_pY277.png`
+- Phosphorylated Tyr277  
+  ![Modified](images/site_modified_pY277.png)
 
-MD simulations show increased flexibility around the 270–310 region in the mimic variant.  
-pKa values remain stable across frames, indicating no major electrostatic disruption at catalytic residues.
+- Y277D mimic  
+  ![Mimic](images/site_mimic_y277d.png)
 
----
+- Structural overlay  
+  ![Overlay](images/site_compare_p277.png)
 
-## Substrate-specific parameters or results  
-No substrate docking was performed; interpretation focuses on structural elements that influence oxaloacetate access and catalytic loop closure. Changes observed near Tyr277 are consistent with modified catalytic timing or destabilized substrate positioning.
+See main report text for full structural and functional comparison.
 
----
 
-## Any other important results  
-- Y277D is **not** a reliable approximation of phosphotyrosine at this position.  
-- Phosphorylation produces targeted electrostatic remodeling; the mimic produces general destabilization.  
-- Loop dynamics increase in the mimic, contrasting with the organized structural changes in the phosphorylated model.
+### Colab notebook links
 
----
+`MDH1_Y277D_MD_simulation.ipynb`  
+`MDH1_Y277D_pKa_analysis.ipynb`  
 
-## Supporting material  
 
-All figures included:
+## Authors
+Noah Canter  
+Course: BIOCHEMISTRY 452 – Project 4  
 
+
+## Deposition Date
+December 2025  
+
+
+## License
+
+Shield:  
+[![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
+
+This work is licensed under a  
+[Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
+
+[![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
+
+[cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/  
+[cc-by-nc-image]: https://licensebuttons.net/l/by-nc/4.0/88x31.png  
+[cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg  
+
+
+## References
+
+1. Harms, M. J.; Schlessman, J. L.; Sue, G. R.; Garcia-Moreno, B. E. *PNAS* **2011**, 108, 18954–18959. https://doi.org/10.1073/pnas.1104808108  
+
+2. Dephoure, N.; Gygi, S. P. *Methods* **2011**, 54, 379–386. https://doi.org/10.1016/j.ymeth.2011.03.008  
+
+3. Hammes-Schiffer, S.; Benkovic, S. J. *Annu. Rev. Biochem.* **2006**, 75, 519–541.  
+
+4. Hunter, T.; Sefton, B. M. *PNAS* **1980**, 77, 1311–1315. https://doi.org/10.1073/pnas.77.3.1311  
+
+5. LaNoue, K. F.; Schoolwerth, A. C. *Annu. Rev. Biochem.* **1979**, 48, 871–922.  
+
+6. Minárik, P.; Tomásková, N.; Kollárová, M.; Antalík, M. *Gen. Physiol. Biophys.* **2002**, 21, 257–265.  
+
+7. Navo, C. D.; Jiménez-Osés, G. *ACS Med. Chem. Lett.* **2021**, 12, 1624–1628. https://doi.org/10.1021/acsmedchemlett.1c00435  
+
+8. UniProt: P40925. https://www.uniprot.org/uniprotkb/P40925/entry  
+
+9. Tokuriki, N.; Tawfik, D. S. *Science* **2009**, 324, 203–207. https://doi.org/10.1126/science.1169375  
+
+10. Whittier, S. K.; Hengge, A. C.; Loria, J. P. *Science* **2013**, 341, 899–903. https://doi.org/10.1126/science.1241735  
