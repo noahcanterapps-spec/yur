@@ -5,89 +5,67 @@
 
 
 ## Description
-This repository contains modeled structures, molecular dynamics output, and analysis for unmodified MDH1, phosphorylated Tyr277, and the Y277D phosphomimetic variant. Data include weak-interaction maps, structural overlays, RMSF analyses, and pKa predictions that together evaluate whether Y277D accurately mimics phosphotyrosine at this position.
+This repository contains structural models, visualizations, and molecular-dynamics output for unmodified MDH1, phosphorylated Tyr277 (pY277), and the Y277D phosphomimetic variant. The goal is to compare how authentic phosphorylation reshapes the local environment around residue 277 and whether the Y277D substitution reproduces those structural or dynamic effects. Data include interaction maps, structural overlays, RMSF analysis, and pKa calculations.
 
 
-# Models of human-modified MDH proteins
+# Comparison of MDH1 models and phospho modified MDH1
 
-1. **Image of the unmodified site**  
-![Unmodified site](images/site_unmodified_y277.png)
-
-   **Wide view:**  
-   ![Unmodified wide](images/site_unmodified_y277_wide.png)
-
-2. **Image of modification site**  
-![Modified site](images/site_modified_pY277.png)
+1. **Unmodified Tyr277**  
+![Tyr277 forms contacts with Asn275, Trp183, Val299, and Arg309, stabilizing the loop at the entrance of the active-site channel.](images/site_unmodified_y277.png)
 
    **Wide view:**  
-   ![Modified wide](images/site_modified_pY277_wide.png)
+   ![Shows the position of Tyr277 within the MDH1 dimer and how the loop fits into the larger fold.](images/site_unmodified_y277_wide.png)
 
-3. **Image of mimic site**  
-![Mimic site](images/site_mimic_y277d.png)
+2. **Phosphorylated Tyr277 (pY277)**  
+![Phosphorylation shifts the pocket by drawing in Gly301 and Arg309 while retaining contact with Asn275. Several unmodified interactions disappear, and the loop geometry tightens around the phosphate.](images/site_modified_pY277.png)
 
    **Wide view:**  
-   ![Mimic wide](images/site_mimic_y277d_wide.png)
+   ![The phosphate produces noticeable repositioning of residues in the nearby β-strand and short helix (300–304), slightly narrowing the entry to the active-site channel.](images/site_modified_pY277_wide.png)
 
-4. **Superimposed comparison of all three variants**  
-![Superimposed structures](images/site_compare_p277.png)
+3. **Y277D Mimic**  
+![Asp277 is shorter and lacks the aromatic ring. Only Asn275 and Arg309 remain as contacts, leaving the loop more open and less organized.](images/site_mimic_y277d.png)
+
+   **Wide view:**  
+   ![The loop around 275–280 appears looser, reflecting the absence of the bulky Tyr side chain and the lack of phosphate-driven electrostatic organization.](images/site_mimic_y277d_wide.png)
+
+4. **Overlay of all three variants**  
+![Tyr277, Asp277, and pTyr277 are outlined in red. Phosphotyrosine extends outward and engages new contacts; Asp277 sits lower in the pocket and cannot reach the same residues. This reinforces that Y277D does not reproduce the structure created by phosphorylation.](images/site_compare_p277.png)
 
 
 ## Effect of the sequence variant and PTM on MDH dynamics
 
 Part 3 from the Project 4 report
 
-1. **Image of aligned PDB files (no solvent)**  
-*(Provided as superimposed variants)*  
-![Aligned variants](images/site_compare_p277.png)
+1. **Aligned PDB site comparison (no solvent)**  
+![Direct comparison of residue placement highlights differences in sterics and electrostatics across the three states.](images/site_compare_p277.png)
 
-2. **Image of the site with the aligned PDB files (no solvent)**  
-*(Close-up of the same overlay)*  
-![Aligned site view](images/site_compare_p277.png)
+2. **RMSF (line plot)**  
+![RMSF values show increased flexibility around residues 270–310 in the Y277D variant. This region includes the substituted site and the helix interacting with Arg309 and Gly301.](images/rmsf_plot_mdh1_pY277.png)
 
-3. **Annotated RMSF plot showing differences between simulations**  
-![RMSF line plot](images/rmsf_plot_mdh1_pY277.png)
+3. **RMSF scatter plot**  
+![The mimic displays a wider spread of fluctuations in the same region, supporting that the loop becomes more mobile when Tyr277 is replaced with Asp.](images/rmsf_scatter_plot_mdh1_pY277.png)
 
-4. **Annotated RMSF scatter plot**  
-![RMSF scatter](images/rmsf_scatter_plot_mdh1_pY277.png)
-
-5. **Annotated pKa plot for titratable residues**  
-![pKa plot](images/pKa_scatter_plot_mdh1_pY277.png)
+4. **pKa plot (titratable residues)**  
+![The mimic does not substantially alter pKa values of active-site histidines or other catalytic residues. The effect of Y277D is therefore structural rather than electrostatic.](images/pKa_scatter_plot_mdh1_pY277.png)
 
 
 **Description of the data and changes**  
-(See full written report for integrated structural and MD interpretation.)
+Phosphorylation introduces a large negative charge that reorganizes contacts at residue 277 and shifts nearby backbone positions. Y277D cannot reproduce these effects and instead increases loop mobility. MD data confirm this: RMSF values rise specifically around the substituted loop, and pKa values remain unchanged, consistent with a mimic that disrupts packing but does not generate phosphorylation-like electrostatics.
 
 
 ## Comparison of the mimic and the authentic PTM
 
-Part 4 from the Project 4 report outline
-
-The comparison uses:
-
-- Unmodified Tyr277  
-  ![Unmodified](images/site_unmodified_y277.png)
-
-- Phosphorylated Tyr277  
-  ![Modified](images/site_modified_pY277.png)
-
-- Y277D mimic  
-  ![Mimic](images/site_mimic_y277d.png)
-
-- Structural overlay  
-  ![Overlay](images/site_compare_p277.png)
-
-See main report text for full structural and functional comparison.
+Structural comparisons show that pY277 and Y277D diverge both in residue contacts and in spatial orientation. Phosphorylation creates a coordinated electrostatic pocket involving Gly301, Arg309, and Asn275, while the mimic collapses to a two-residue contact network. The overlay visualization demonstrates that Asp277 cannot physically reach the same positions as pTyr277. MD results reinforce this: the mimic increases flexibility where phosphorylation appears to stabilize the loop. These differences indicate that Y277D is not an adequate substitute for studying the functional role of Tyr277 phosphorylation.
 
 
 ### Colab notebook links
 
-`MDH1_Y277D_MD_simulation.ipynb`  
-`MDH1_Y277D_pKa_analysis.ipynb`  
+`Y277D_MD_simulation.ipynb`
 
 
 ## Authors
 Noah Canter  
-Course: BIOCHEMISTRY 452 – Project 4  
+Course: BIOCHEMISTRY 361 – Project 4  
 
 
 ## Deposition Date
